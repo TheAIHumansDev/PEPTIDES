@@ -702,7 +702,7 @@ function counter(id,target,suffix='',dur=1800){
   let s=0;const step=target/60;
   const t=setInterval(()=>{s+=step;if(s>=target){s=target;clearInterval(t);}el.textContent=Math.floor(s)+suffix;},dur/60);
 }
-setTimeout(()=>{counter('c1',12,'+');counter('c2',600,'+');counter('c3',6,'');},800);
+setTimeout(()=>{counter('c1',9,'+');counter('c2',500,'+');counter('c3',6,'');},800);
 
 renderProducts();
 </script>
