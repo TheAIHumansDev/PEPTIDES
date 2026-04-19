@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costa Rica Péptidos — JG Clinic | Dra. Jeniree Gutiérrez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@200;300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off: #f8f6f2;
+  --cream: #f2ede6;
+  --sand: #e8dfd3;
+  --gold: #b8986a;
+  --gold-lt: #d4b98a;
+  --gold-dk: #8a6f46;
+  --ink: #1a1610;
+  --ink2: #3d3328;
+  --ink3: #6b5f52;
+  --sage: #7a9b8a;
+  --sage-lt: #c4d9cc;
+  --sage-bg: #f0f5f2;
+  --border: #e0d8cf;
+  --border-dk: #c8bdb1;
+  --shadow: rgba(26,22,16,0.08);
+  --shadow-md: rgba(26,22,16,0.14);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow 0.3s;}
+nav.scrolled{box-shadow:0 2px 24px var(--shadow);}
+.nav-logo{display:flex;align-items:center;gap:14px;}
+.logo-mark{width:38px;height:38px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-mark span{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:0.05em;}
+.logo-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--ink);letter-spacing:0.02em;line-height:1.2;}
+.logo-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'Jost',sans-serif;font-size:13px;font-weight:400;letter-spacing:0.08em;color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--ink);color:var(--white);border:none;padding:11px 28px;font-family:'Jost',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.3s;}
+.nav-cta:hover{background:var(--gold-dk);}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--off);display:grid;grid-template-columns:1fr 1fr;padding-top:72px;position:relative;overflow:hidden;}
+.hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:32px 32px;opacity:0.6;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:16px;}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+.hero-headline{font-family:'Playfair Display',serif;font-size:clamp(44px,5.5vw,76px);font-weight:300;line-height:1.08;letter-spacing:-0.02em;color:var(--ink);margin-bottom:28px;}
+.hero-headline em{font-style:italic;color:var(--gold);}
+.hero-body{font-size:16px;color:var(--ink3);line-height:1.8;max-width:440px;margin-bottom:44px;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--white);border:none;padding:15px 36px;font-family:'Jost',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.btn-gold:hover{background:var(--gold-dk);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow-md);}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--border-dk);padding:14px 36px;font-family:'Jost',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px 60px 60px 20px;}
+.hero-card{background:var(--white);border:1px solid var(--border);padding:48px;max-width:420px;width:100%;box-shadow:0 20px 60px var(--shadow);position:relative;}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--sage));}
+.clinic-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-lt);padding:5px 12px;display:inline-block;margin-bottom:24px;}
+.doctor-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--ink);margin-bottom:6px;}
+.doctor-title{font-size:13px;color:var(--ink3);margin-bottom:24px;line-height:1.5;}
+.doctor-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:24px;}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--gold);}
+.stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink3);margin-top:2px;}
+.doctor-location{font-size:13px;color:var(--ink3);display:flex;align-items:center;gap:8px;}
+.hero-stats-row{display:flex;gap:0;margin-top:48px;border-top:1px solid var(--border);padding-top:32px;}
+.hs-item{flex:1;text-align:center;padding:0 20px;border-right:1px solid var(--border);}
+.hs-item:last-child{border-right:none;}
+.hs-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:300;color:var(--ink);}
+.hs-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:4px;}
+
+/* SHARED */
+.section-wrap{max-width:1240px;margin:0 auto;padding:0 60px;}
+.section-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--gold);}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,56px);font-weight:300;line-height:1.12;letter-spacing:-0.02em;color:var(--ink);margin-bottom:16px;}
+.section-body{font-size:15px;color:var(--ink3);line-height:1.8;max-width:520px;}
+.divider{width:100%;height:1px;background:var(--border);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:0.12s;}
+.reveal-d2{transition-delay:0.24s;}
+
+/* PEPTIDES */
+#peptides{padding:120px 0;background:var(--white);}
+.peptides-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.peptides-visual{background:var(--cream);border:1px solid var(--border);padding:60px 48px;position:relative;overflow:hidden;text-align:center;}
+.peptides-visual::after{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;border:1px solid var(--border);}
+.peptides-visual::before{content:'';position:absolute;top:-60px;left:-60px;width:160px;height:160px;border-radius:50%;border:1px solid var(--border);}
+.molecule-svg{width:100%;max-width:320px;margin:0 auto;display:block;position:relative;z-index:2;}
+.peptide-facts{display:flex;flex-direction:column;gap:24px;}
+.fact-item{display:flex;gap:20px;align-items:flex-start;}
+.fact-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:300;color:var(--gold);line-height:1;flex-shrink:0;width:60px;}
+.fact-text h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--ink);margin-bottom:6px;}
+.fact-text p{font-size:14px;color:var(--ink3);line-height:1.7;}
+
+/* BENEFITS */
+#benefits{padding:120px 0;background:var(--off);}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
+.benefit-card{background:var(--white);padding:48px 40px;border:1px solid var(--border);transition:all 0.4s;position:relative;overflow:hidden;}
+.benefit-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s;transform-origin:left;}
+.benefit-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px var(--shadow-md);}
+.benefit-card:hover::before{transform:scaleX(1);}
+.benefit-icon{width:56px;height:56px;background:var(--cream);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:28px;}
+.benefit-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:14px;}
+.benefit-desc{font-size:14px;color:var(--ink3);line-height:1.8;}
+
+/* DOCTOR */
+#doctor{padding:120px 0;background:var(--white);}
+.doctor-layout{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:start;margin-top:60px;}
+.portrait-frame{background:var(--cream);border:1px solid var(--border);aspect-ratio:3/4;max-height:520px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.portrait-placeholder{text-align:center;}
+.portrait-initial{font-family:'Playfair Display',serif;font-size:96px;font-weight:300;color:var(--gold-lt);display:block;line-height:1;}
+.portrait-name-under{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);margin-top:12px;}
+.portrait-badge{position:absolute;bottom:0;left:0;right:0;background:var(--ink);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+.portrait-badge span{font-family:'Jost',sans-serif;font-size:12px;color:var(--white);letter-spacing:0.08em;}
+.portrait-badge em{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);font-style:normal;letter-spacing:0.15em;}
+.doctor-portrait{position:relative;}
+.portrait-accent{position:absolute;top:20px;right:-20px;width:120px;height:120px;border-radius:50%;border:1px solid var(--border-dk);}
+.bio-intro{font-family:'Playfair Display',serif;font-size:22px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.bio-body{font-size:15px;color:var(--ink3);line-height:1.9;margin-bottom:36px;}
+.credentials-list{display:flex;flex-direction:column;gap:12px;margin-bottom:36px;}
+.cred-item{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--ink2);}
+.cred-item::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+.clinic-info-box{background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--gold);padding:28px 32px;}
+.clinic-info-box h4{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:8px;}
+.clinic-info-box p{font-size:13px;color:var(--ink3);line-height:1.7;margin-bottom:16px;}
+.clinic-details{display:flex;flex-direction:column;gap:6px;}
+.clinic-details span{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink2);letter-spacing:0.08em;}
+.clinic-details strong{color:var(--gold);}
+
+/* PRODUCTS */
+#productos{padding:120px 0;background:var(--off);}
+.products-header{margin-bottom:60px;}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.product-card{background:var(--white);border:1px solid var(--border);overflow:hidden;transition:all 0.4s;cursor:pointer;position:relative;}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 56px var(--shadow-md);border-color:var(--gold-lt);}
+.product-visual{background:var(--cream);height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.product-icon-wrap{width:90px;height:90px;background:var(--white);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 4px 20px var(--shadow);transition:transform 0.4s;}
+.product-card:hover .product-icon-wrap{transform:scale(1.08);}
+.product-category{position:absolute;top:16px;left:16px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;background:var(--white);color:var(--gold);padding:5px 10px;border:1px solid var(--border);}
+.product-badge{position:absolute;top:16px;right:16px;background:var(--ink);color:var(--white);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 10px;}
+.product-body{padding:28px;}
+.product-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:6px;}
+.product-scientific{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--gold);margin-bottom:14px;text-transform:uppercase;}
+.product-desc{font-size:13px;color:var(--ink3);line-height:1.7;margin-bottom:20px;}
+.product-benefits{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;}
+.pb-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);color:var(--ink3);padding:4px 10px;transition:all 0.2s;}
+.product-card:hover .pb-tag{border-color:var(--gold-lt);color:var(--gold-dk);}
+.product-footer{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-top:1px solid var(--border);background:var(--off);}
+.product-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);}
+.product-price span{font-family:'Jost',sans-serif;font-size:13px;color:var(--ink3);font-weight:300;}
+.add-btn{background:var(--ink);color:var(--white);border:none;padding:10px 22px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.add-btn:hover{background:var(--gold-dk);}
+.medical-disclaimer{background:var(--sage-bg);border:1px solid var(--sage-lt);border-left:3px solid var(--sage);padding:20px 28px;margin-top:40px;display:flex;gap:16px;align-items:flex-start;}
+.medical-disclaimer .disc-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.medical-disclaimer p{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink2);line-height:1.7;letter-spacing:0.02em;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,22,16,0.7);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--white);border:1px solid var(--border);max-width:760px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+.modal-top{display:flex;}
+.modal-visual{width:260px;flex-shrink:0;background:var(--cream);display:flex;align-items:center;justify-content:center;padding:40px;}
+.modal-visual .product-icon-wrap{width:120px;height:120px;font-size:52px;}
+.modal-content{flex:1;padding:48px;}
+.modal-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink3);transition:color 0.2s;line-height:1;}
+.modal-close:hover{color:var(--ink);}
+.modal-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.modal-name{font-family:'Playfair Display',serif;font-size:34px;font-weight:400;color:var(--ink);margin-bottom:6px;}
+.modal-scientific{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:0.1em;margin-bottom:24px;text-transform:uppercase;}
+.modal-section-title{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink2);font-weight:500;margin-bottom:10px;margin-top:24px;}
+.modal-text{font-size:14px;color:var(--ink3);line-height:1.8;}
+.modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.modal-footer{padding:24px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--off);}
+.modal-price{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--ink);}
+.modal-price-note{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);letter-spacing:0.1em;margin-top:2px;}
+.modal-actions{display:flex;gap:12px;}
+.btn-modal-primary{background:var(--ink);color:var(--white);border:none;padding:14px 32px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.3s;}
+.btn-modal-primary:hover{background:var(--gold-dk);}
+.btn-modal-secondary{background:transparent;color:var(--ink);border:1px solid var(--border-dk);padding:14px 24px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.btn-modal-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+/* STEPS */
+#comenzar{padding:120px 0;background:var(--white);}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;position:relative;}
+.steps-row::before{content:'';position:absolute;top:32px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:1px;background:var(--border);z-index:0;}
+.step-col{padding:0 20px;text-align:center;position:relative;z-index:1;}
+.step-circle{width:64px;height:64px;background:var(--white);border:1px solid var(--border-dk);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:300;color:var(--gold);margin:0 auto 28px;transition:all 0.3s;}
+.step-col:hover .step-circle{background:var(--gold);color:var(--white);border-color:var(--gold);}
+.step-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--ink);margin-bottom:10px;}
+.step-desc{font-size:13px;color:var(--ink3);line-height:1.7;}
+
+/* FAQ */
+#faq{padding:120px 0;background:var(--off);}
+.faq-layout{display:grid;grid-template-columns:5fr 7fr;gap:80px;margin-top:60px;}
+.faq-list{display:flex;flex-direction:column;gap:0;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-question{width:100%;background:none;border:none;padding:22px 0;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:var(--ink);line-height:1.4;}
+.faq-icon{width:28px;height:28px;border:1px solid var(--border-dk);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gold);flex-shrink:0;transition:all 0.3s;font-family:monospace;}
+.faq-item.open .faq-icon{background:var(--gold);color:var(--white);border-color:var(--gold);transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.faq-answer-inner{padding:0 0 22px;font-size:14px;color:var(--ink3);line-height:1.8;}
+.faq-item.open .faq-answer{max-height:300px;}
+.faq-contact-box{background:var(--ink);padding:48px;height:fit-content;position:sticky;top:100px;}
+.faq-contact-box h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:300;color:var(--white);margin-bottom:16px;line-height:1.3;}
+.faq-contact-box p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:32px;}
+.contact-links{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.contact-link{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.8);text-decoration:none;padding:14px 18px;border:1px solid rgba(255,255,255,0.15);transition:all 0.3s;}
+.contact-link:hover{border-color:var(--gold);color:var(--gold);}
+.contact-link span{font-size:18px;}
+
+/* FINAL CTA */
+#final-cta{padding:120px 0;background:var(--ink);position:relative;overflow:hidden;}
+.cta-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(184,152,106,0.08) 1px,transparent 1px);background-size:40px 40px;}
+.cta-content{position:relative;z-index:1;text-align:center;max-width:760px;margin:0 auto;}
+.cta-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:14px;justify-content:center;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:20px;}
+.cta-title em{font-style:italic;color:var(--gold-lt);}
+.cta-body{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:44px;}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-gold-lg{background:var(--gold);color:var(--white);border:none;padding:18px 44px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.btn-gold-lg:hover{background:var(--gold-lt);transform:translateY(-2px);}
+.btn-white-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3);padding:17px 44px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.btn-white-outline:hover{border-color:var(--gold-lt);color:var(--gold-lt);}
+
+/* FOOTER */
+footer{background:var(--off);border-top:1px solid var(--border);padding:60px;}
+.footer-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px;}
+.footer-brand p{font-size:13px;color:var(--ink3);line-height:1.7;margin-top:16px;max-width:260px;}
+.footer-col h5{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;color:var(--ink3);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--gold);}
+.footer-bottom{max-width:1240px;margin:0 auto;padding-top:32px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.footer-legal{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);letter-spacing:0.08em;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:960px){
+  nav{padding:0 24px;}
+  .nav-links,.nav-cta{display:none;}
+  #hero{grid-template-columns:1fr;min-height:auto;padding-top:100px;}
+  .hero-left{padding:60px 24px 40px;}
+  .hero-right{padding:0 24px 60px;}
+  .hero-stats-row{flex-direction:column;gap:20px;}
+  .peptides-layout,.doctor-layout,.faq-layout{grid-template-columns:1fr;}
+  .benefits-grid,.products-grid{grid-template-columns:1fr;}
+  .steps-row{grid-template-columns:1fr 1fr;}
+  .steps-row::before{display:none;}
+  footer{padding:40px 24px;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .section-wrap{padding:0 24px;}
+  #peptides,#benefits,#doctor,#productos,#comenzar,#faq,#final-cta{padding:80px 0;}
+  .products-header{flex-direction:column;align-items:flex-start;gap:20px;}
+  .modal-top{flex-direction:column;}
+  .modal-visual{width:100%;height:180px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="logo-mark"><span>JG</span></div>
+    <div class="logo-text">Costa Rica Péptidos <span class="logo-sub">JG Clinic</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#peptides">¿Qué son?</a></li>
+    <li><a href="#benefits">Beneficios</a></li>
+    <li><a href="#doctor">La Doctora</a></li>
+    <li><a href="#productos">Tratamientos</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Consulta Gratis</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow" style="animation:fadeUp 0.8s 0.2s both">JG Clinic · Costa Rica</div>
+    <h1 class="hero-headline" style="animation:fadeUp 0.8s 0.4s both">La ciencia de<br><em>los péptidos,</em><br>a tu alcance</h1>
+    <p class="hero-body" style="animation:fadeUp 0.8s 0.6s both">Aprende sobre terapias peptídicas de la mano de la Dra. Jeniree Gutiérrez — especialista en medicina regenerativa y optimización de la salud en Costa Rica.</p>
+    <div class="hero-actions" style="animation:fadeUp 0.8s 0.8s both">
+      <button class="btn-gold" onclick="document.getElementById('peptides').scrollIntoView({behavior:'smooth'})">Aprender sobre Péptidos</button>
+      <button class="btn-outline" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver Tratamientos</button>
+    </div>
+    <div class="hero-stats-row" style="animation:fadeUp 0.8s 1s both">
+      <div class="hs-item"><div class="hs-num" id="c1">0</div><div class="hs-label">Años de Experiencia</div></div>
+      <div class="hs-item"><div class="hs-num" id="c2">0</div><div class="hs-label">Pacientes Atendidos</div></div>
+      <div class="hs-item"><div class="hs-num" id="c3">0</div><div class="hs-label">Protocolos Activos</div></div>
+    </div>
+  </div>
+  <div class="hero-right" style="animation:fadeUp 0.8s 0.5s both">
+    <div class="hero-card">
+      <div class="clinic-badge">✦ JG Clinic — Verificada</div>
+      <div class="doctor-name">Dra. Jeniree Gutiérrez</div>
+      <div class="doctor-title">Especialista en Medicina Regenerativa<br>y Terapias Peptídicas · Costa Rica</div>
+      <div class="doctor-stats">
+        <div class="stat-item"><div class="stat-num">+12</div><div class="stat-label">Años Ejerciendo</div></div>
+        <div class="stat-item"><div class="stat-num">+600</div><div class="stat-label">Pacientes</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Protocolos</div></div>
+        <div class="stat-item"><div class="stat-num">⭐ 4.9</div><div class="stat-label">Calificación</div></div>
+      </div>
+      <div class="doctor-location"><span>📍</span><span>San José, Costa Rica · Presencial y Virtual</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUÉ SON PÉPTIDOS -->
+<section id="peptides">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-tag">Educación Médica</div>
+      <h2 class="section-title">¿Qué son los péptidos?</h2>
+      <p class="section-body">Los péptidos son moléculas naturales formadas por cadenas cortas de aminoácidos — los mismos bloques que componen las proteínas del cuerpo. Actúan como mensajeros biológicos que regulan funciones esenciales del organismo.</p>
+    </div>
+    <div class="peptides-layout">
+      <div class="peptides-visual reveal">
+        <svg class="molecule-svg" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="160" y1="60" x2="80" y2="140" stroke="#b8986a" stroke-width="1.5" opacity="0.5"/>
+          <line x1="160" y1="60" x2="240" y2="140" stroke="#b8986a" stroke-width="1.5" opacity="0.5"/>
+          <line x1="80" y1="140" x2="160" y2="220" stroke="#b8986a" stroke-width="1.5" opacity="0.5"/>
+          <line x1="240" y1="140" x2="160" y2="220" stroke="#b8986a" stroke-width="1.5" opacity="0.5"/>
+          <line x1="80" y1="140" x2="240" y2="140" stroke="#b8986a" stroke-width="1" opacity="0.3"/>
+          <line x1="160" y1="60" x2="130" y2="30" stroke="#7a9b8a" stroke-width="1" opacity="0.5"/>
+          <line x1="240" y1="140" x2="278" y2="120" stroke="#7a9b8a" stroke-width="1" opacity="0.5"/>
+          <line x1="80" y1="140" x2="42" y2="120" stroke="#7a9b8a" stroke-width="1" opacity="0.5"/>
+          <line x1="160" y1="220" x2="160" y2="258" stroke="#7a9b8a" stroke-width="1" opacity="0.5"/>
+          <circle cx="160" cy="60" r="20" fill="#f2ede6" stroke="#b8986a" stroke-width="1.5"/>
+          <text x="160" y="66" text-anchor="middle" fill="#b8986a" font-family="serif" font-size="12">NH₂</text>
+          <circle cx="80" cy="140" r="20" fill="#f2ede6" stroke="#b8986a" stroke-width="1.5"/>
+          <text x="80" y="146" text-anchor="middle" fill="#b8986a" font-family="serif" font-size="12">Cα</text>
+          <circle cx="240" cy="140" r="20" fill="#f2ede6" stroke="#b8986a" stroke-width="1.5"/>
+          <text x="240" y="146" text-anchor="middle" fill="#b8986a" font-family="serif" font-size="12">C=O</text>
+          <circle cx="160" cy="220" r="20" fill="#f2ede6" stroke="#b8986a" stroke-width="1.5"/>
+          <text x="160" y="226" text-anchor="middle" fill="#b8986a" font-family="serif" font-size="11">COOH</text>
+          <circle cx="130" cy="30" r="10" fill="#f2ede6" stroke="#7a9b8a" stroke-width="1"/>
+          <circle cx="278" cy="120" r="10" fill="#f2ede6" stroke="#7a9b8a" stroke-width="1"/>
+          <circle cx="42" cy="120" r="10" fill="#f2ede6" stroke="#7a9b8a" stroke-width="1"/>
+          <circle cx="160" cy="258" r="10" fill="#f2ede6" stroke="#7a9b8a" stroke-width="1"/>
+          <circle cx="160" cy="140" r="14" fill="#b8986a" opacity="0.15"/>
+          <circle cx="160" cy="140" r="6" fill="#b8986a" opacity="0.5"/>
+          <text x="160" y="276" text-anchor="middle" fill="#7a9b8a" font-family="monospace" font-size="9" letter-spacing="2">ENLACE PEPTÍDICO</text>
+        </svg>
+        <div style="margin-top:20px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3)">Estructura molecular simplificada</div>
+      </div>
+      <div class="peptide-facts reveal reveal-d1">
+        <div class="fact-item">
+          <div class="fact-num">01</div>
+          <div class="fact-text"><h4>Son 100% naturales</h4><p>Los péptidos existen de forma natural en tu cuerpo. Las terapias buscan reponer o ampliar señales que el organismo produce de manera endógena, actuando de forma fisiológica y precisa.</p></div>
+        </div>
+        <div style="height:1px;background:var(--border)"></div>
+        <div class="fact-item">
+          <div class="fact-num">02</div>
+          <div class="fact-text"><h4>Actúan como mensajeros</h4><p>Se unen a receptores celulares específicos enviando instrucciones precisas: estimular la regeneración, reducir inflamación, optimizar el metabolismo o mejorar la respuesta hormonal.</p></div>
+        </div>
+        <div style="height:1px;background:var(--border)"></div>
+        <div class="fact-item">
+          <div class="fact-num">03</div>
+          <div class="fact-text"><h4>Respaldo científico sólido</h4><p>Cientos de estudios clínicos avalan su uso. Son empleados en protocolos médicos supervisados en todo el mundo para longevidad, recuperación y optimización metabólica.</p></div>
+        </div>
+        <div style="height:1px;background:var(--border)"></div>
+        <div class="fact-item">
+          <div class="fact-num">04</div>
+          <div class="fact-text"><h4>Requieren supervisión médica</h4><p>Su uso debe ser indicado, dosificado y monitoreado por un médico especialista. En JG Clinic diseñamos protocolos individualizados para cada paciente.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BENEFICIOS -->
+<section id="benefits">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-tag">Aplicaciones Clínicas</div>
+      <h2 class="section-title">Beneficios de las<br>terapias peptídicas</h2>
+      <p class="section-body">Cada péptido tiene una función específica. Aquí presentamos las principales áreas donde la evidencia científica es más sólida.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal"><div class="benefit-icon">⏳</div><div class="benefit-name">Longevidad Celular</div><div class="benefit-desc">Péptidos como Epithalon estimulan la producción de telomerasa, protegiendo los telómeros y ralentizando el envejecimiento celular. Los estudios muestran mejoras en marcadores de edad biológica.</div></div>
+      <div class="benefit-card reveal reveal-d1"><div class="benefit-icon">⚡</div><div class="benefit-name">Recuperación y Reparación</div><div class="benefit-desc">BPC-157 y TB-500 aceleran la cicatrización de tejidos blandos, tendones y músculos. Son los péptidos más estudiados en recuperación deportiva y lesiones crónicas.</div></div>
+      <div class="benefit-card reveal reveal-d2"><div class="benefit-icon">⚖️</div><div class="benefit-name">Control Metabólico</div><div class="benefit-desc">Los análogos de GLP-1 como Semaglutide y Retatrutide regulan el apetito, la insulina y el metabolismo graso, con resultados clínicamente comprobados en pérdida de peso sostenible.</div></div>
+      <div class="benefit-card reveal"><div class="benefit-icon">🏃</div><div class="benefit-name">Rendimiento Físico</div><div class="benefit-desc">Secretagogos de hormona de crecimiento como CJC-1295 e Ipamorelin optimizan la composición corporal, la fuerza y la recuperación muscular sin los riesgos de la HGH exógena.</div></div>
+      <div class="benefit-card reveal reveal-d1"><div class="benefit-icon">🧠</div><div class="benefit-name">Salud Cognitiva</div><div class="benefit-desc">Péptidos nootrópicos como Semax y Selank mejoran la neuroplasticidad, la memoria y la respuesta al estrés. Usados en protocolos de neuroprotección y bienestar mental.</div></div>
+      <div class="benefit-card reveal reveal-d2"><div class="benefit-icon">🛡️</div><div class="benefit-name">Sistema Inmunológico</div><div class="benefit-desc">Thymosin Alpha-1 y LL-37 modulan la respuesta inmune, mejoran la resistencia a infecciones y tienen aplicaciones en enfermedades autoinmunes bajo supervisión especializada.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DOCTOR -->
+<section id="doctor">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-tag">JG Clinic · La Especialista</div>
+      <h2 class="section-title">Dra. Jeniree Gutiérrez</h2>
+    </div>
+    <div class="doctor-layout">
+      <div class="doctor-portrait reveal">
+        <div class="portrait-frame">
+          <div class="portrait-placeholder">
+            <span class="portrait-initial">JG</span>
+            <div class="portrait-name-under">Dra. Jeniree Gutiérrez</div>
+          </div>
+          <div class="portrait-badge"><span>JG Clinic · Costa Rica</span><em>Médico Especialista</em></div>
+        </div>
+        <div class="portrait-accent"></div>
+      </div>
+      <div class="reveal reveal-d1">
+        <p class="bio-intro">"Mi misión es acercar la medicina de precisión a los costarricenses, con ciencia sólida, criterio médico y acompañamiento cercano."</p>
+        <p class="bio-body">La Dra. Jeniree Gutiérrez es una médica costarricense especializada en medicina regenerativa, optimización hormonal y terapias peptídicas. Con más de 12 años de experiencia clínica, ha atendido a cientos de pacientes que buscan mejorar su calidad de vida a través de protocolos de medicina funcional y de precisión.<br><br>Formada tanto en Costa Rica como en el extranjero, la Dra. Gutiérrez se mantiene en constante actualización científica, participando en congresos internacionales de longevidad y medicina regenerativa. En JG Clinic, cada protocolo es diseñado a la medida del paciente, combinando análisis clínicos profundos, seguimiento continuo y educación médica activa.</p>
+        <div class="credentials-list">
+          <div class="cred-item">Médico Cirujano — Universidad de Costa Rica</div>
+          <div class="cred-item">Especialización en Medicina Regenerativa y Antienvejecimiento</div>
+          <div class="cred-item">Certificación en Terapias Peptídicas y Optimización Hormonal</div>
+          <div class="cred-item">Miembro activo del Colegio de Médicos y Cirujanos de Costa Rica</div>
+          <div class="cred-item">Capacitación internacional en Medicina de Longevidad</div>
+          <div class="cred-item">Más de 600 pacientes atendidos bajo protocolos personalizados</div>
+        </div>
+        <div class="clinic-info-box">
+          <h4>JG Clinic</h4>
+          <p>Clínica especializada en medicina regenerativa, terapias peptídicas y optimización de la salud. Atención presencial en San José y consultas virtuales para todo Costa Rica y pacientes internacionales.</p>
+          <div class="clinic-details">
+            <span>📍 <strong>Ubicación:</strong> San José, Costa Rica</span>
+            <span>💻 <strong>Modalidad:</strong> Presencial y Virtual</span>
+            <span>🌐 <strong>Idiomas:</strong> Español · Inglés</span>
+            <span>📋 <strong>Primera consulta:</strong> Evaluación clínica completa incluida</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="section-wrap">
+    <div class="products-header reveal">
+      <div class="section-tag">Protocolos Clínicos</div>
+      <h2 class="section-title">Tratamientos disponibles<br>en JG Clinic</h2>
+      <p class="section-body">Todos los tratamientos son prescritos y supervisados por la Dra. Gutiérrez. La consulta inicial es obligatoria. Haz clic en cualquier tratamiento para conocer más.</p>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+    <div class="medical-disclaimer reveal">
+      <div class="disc-icon">⚕️</div>
+      <p><strong>Aviso médico importante:</strong> Todos los tratamientos listados son de uso médico supervisado. No se dispensan sin evaluación clínica previa con la Dra. Gutiérrez. Los péptidos son compuestos farmacológicos que requieren prescripción, dosificación individualizada y seguimiento profesional. Los precios indicados son referenciales e incluyen el diseño del protocolo personalizado. Resultados pueden variar según el paciente.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CÓMO EMPEZAR -->
+<section id="comenzar">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-tag">Proceso</div>
+      <h2 class="section-title">¿Cómo comenzar<br>tu tratamiento?</h2>
+      <p class="section-body">Un proceso clínico claro, transparente y guiado en cada paso.</p>
+    </div>
+    <div class="steps-row reveal">
+      <div class="step-col"><div class="step-circle">1</div><div class="step-title">Consulta Inicial</div><div class="step-desc">Historia clínica completa y definición de tus objetivos de salud con la Dra. Gutiérrez.</div></div>
+      <div class="step-col"><div class="step-circle">2</div><div class="step-title">Análisis de Laboratorio</div><div class="step-desc">Panel de análisis específicos: hormonas, marcadores metabólicos, función orgánica y biomarcadores.</div></div>
+      <div class="step-col"><div class="step-circle">3</div><div class="step-title">Protocolo Personalizado</div><div class="step-desc">La doctora diseña tu plan individual: qué péptidos, dosis, frecuencia y duración del ciclo.</div></div>
+      <div class="step-col"><div class="step-circle">4</div><div class="step-title">Seguimiento Continuo</div><div class="step-desc">Control periódico de resultados, ajuste del protocolo y evaluación de biomarcadores.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-tag">Preguntas Frecuentes</div>
+      <h2 class="section-title">Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq-layout">
+      <div class="faq-list reveal">
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Son seguros los péptidos para uso humano?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">Los péptidos utilizados en nuestra clínica tienen amplio respaldo científico y perfil de seguridad bien documentado. Sin embargo, como cualquier compuesto farmacológico, requieren evaluación médica previa, dosificación adecuada y seguimiento. La Dra. Gutiérrez evalúa cada caso individualmente para determinar si son adecuados para ti.</div></div></div>
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Son legales en Costa Rica?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">Sí. Los péptidos de uso médico están dentro del marco regulatorio costarricense cuando son prescritos por un médico habilitado. En JG Clinic trabajamos estrictamente dentro de los lineamientos del Colegio de Médicos y Cirujanos de Costa Rica.</div></div></div>
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Cuánto tiempo tarda en verse resultados?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">Depende del péptido y del objetivo. Algunos pacientes reportan mejoras en energía y sueño dentro de las primeras 2-4 semanas. Para objetivos de composición corporal o recuperación estructural, los ciclos típicos duran 8-16 semanas con evaluaciones periódicas.</div></div></div>
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Puedo hacer la consulta de forma virtual?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">Sí. La Dra. Gutiérrez atiende consultas virtuales para pacientes en todo Costa Rica e internacionales. La evaluación inicial, el diseño del protocolo y los seguimientos se pueden realizar completamente en línea con análisis de laboratorio locales.</div></div></div>
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Cómo se administran los péptidos?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">La vía de administración varía según el péptido: subcutánea (inyección bajo la piel, la más común), oral, intranasal o tópica. La doctora enseña personalmente la técnica a los pacientes que la requieren. Es un proceso sencillo y prácticamente indoloro.</div></div></div>
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Los péptidos tienen efectos secundarios?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">Con dosificación adecuada y supervisión médica, los efectos secundarios son infrecuentes y generalmente leves. La evaluación previa y el monitoreo continuo son clave para minimizar cualquier riesgo.</div></div></div>
+        <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span class="faq-q-text">¿Están indicados para todas las edades?</span><div class="faq-icon">+</div></button><div class="faq-answer"><div class="faq-answer-inner">La mayoría de los protocolos están diseñados para adultos mayores de 25 años. No se utilizan en menores de edad ni durante el embarazo sin indicación muy específica y monitoreo riguroso.</div></div></div>
+      </div>
+      <div class="faq-contact-box reveal reveal-d1">
+        <h3>¿Tienes más preguntas? Habla directamente con la Dra. Gutiérrez</h3>
+        <p>La primera consulta de orientación es gratuita. Cuéntanos tu caso y te orientamos sin compromiso.</p>
+        <div class="contact-links">
+          <a href="https://wa.me/50600000000" class="contact-link"><span>💬</span>WhatsApp · Respuesta rápida</a>
+          <a href="mailto:info@jgclinic.cr" class="contact-link"><span>✉️</span>info@jgclinic.cr</a>
+          <a href="https://instagram.com/jgclinic" class="contact-link"><span>📸</span>@jgclinic · Instagram</a>
+        </div>
+        <button class="btn-gold" style="width:100%">Agendar Consulta Gratuita</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="cta-pattern"></div>
+  <div class="section-wrap">
+    <div class="cta-content reveal">
+      <div class="cta-tag">JG Clinic · Costa Rica</div>
+      <h2 class="cta-title">Empieza tu camino hacia<br>una salud <em>optimizada</em></h2>
+      <p class="cta-body">Aprende, consulta y diseña tu protocolo personalizado con la Dra. Jeniree Gutiérrez. Medicina de precisión, con respaldo científico y trato humano.</p>
+      <div class="cta-buttons">
+        <button class="btn-gold-lg" onclick="document.getElementById('peptides').scrollIntoView({behavior:'smooth'})">Aprender sobre Péptidos</button>
+        <button class="btn-white-outline" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Contactar a la Doctora</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:16px">
+        <div class="logo-mark"><span>JG</span></div>
+        <div class="logo-text">Costa Rica Péptidos <span class="logo-sub">JG Clinic</span></div>
+      </div>
+      <p>Clínica especializada en medicina regenerativa y terapias peptídicas. Dirigida por la Dra. Jeniree Gutiérrez, médico especialista con más de 12 años de experiencia en Costa Rica.</p>
+    </div>
+    <div class="footer-col"><h5>Aprende</h5><ul><li><a href="#peptides">¿Qué son los péptidos?</a></li><li><a href="#benefits">Beneficios</a></li><li><a href="#comenzar">Cómo empezar</a></li><li><a href="#faq">Preguntas frecuentes</a></li></ul></div>
+    <div class="footer-col"><h5>Tratamientos</h5><ul><li><a href="#productos">GLP-1 / Semaglutide</a></li><li><a href="#productos">Retatrutide</a></li><li><a href="#productos">Tesamorelin</a></li><li><a href="#productos">BPC-157</a></li><li><a href="#productos">CJC-1295 + Ipamorelin</a></li><li><a href="#productos">Epithalon</a></li></ul></div>
+    <div class="footer-col"><h5>JG Clinic</h5><ul><li><a href="#doctor">La Doctora</a></li><li><a href="#faq">Consulta Virtual</a></li><li><a href="#faq">WhatsApp</a></li><li><a href="#faq">Instagram</a></li><li><a href="#">Aviso de Privacidad</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2025 JG Clinic · Costa Rica Péptidos · Todos los derechos reservados</div>
+    <div class="footer-legal">Uso médico supervisado · Prescripción requerida · Información educativa</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeModalOnOverlay(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-top">
+      <div class="modal-visual" id="modalVisual"></div>
+      <div class="modal-content">
+        <div class="modal-tag" id="modalTag"></div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-scientific" id="modalScientific"></div>
+        <div class="modal-section-title">¿Qué es?</div>
+        <div class="modal-text" id="modalWhat"></div>
+        <div class="modal-section-title">¿Cómo funciona?</div>
+        <div class="modal-text" id="modalHow"></div>
+        <div class="modal-section-title">Beneficios principales</div>
+        <div class="modal-tags" id="modalBenefits"></div>
+        <div class="modal-section-title">Indicaciones clínicas</div>
+        <div class="modal-text" id="modalIndications"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div>
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-price-note">Incluye evaluación y diseño de protocolo · Precio referencial</div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-modal-secondary" onclick="closeModal()">Cerrar</button>
+        <button class="btn-modal-primary" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});closeModal()">Consultar con la Dra.</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = [
+  {id:1,icon:'💉',category:'Péptido GLP-1',badge:'MÁS SOLICITADO',name:'Semaglutide',scientific:'GLP-1 Receptor Agonist',desc:'Análogo de GLP-1 que regula el apetito y el metabolismo de la glucosa. Clínicamente comprobado para pérdida de peso significativa y control glucémico.',benefits:['Pérdida de peso','Control glucémico','Reduce apetito','Cardioprotector','Mejora insulina'],what:'El Semaglutide es un análogo del péptido GLP-1 (glucagón-like peptide-1), una hormona intestinal que el cuerpo produce naturalmente tras las comidas. Al mimetizar esta hormona, el Semaglutide actúa a nivel cerebral y pancreático para regular de forma integral el metabolismo energético.',how:'Se une a los receptores GLP-1 en el hipotálamo reduciendo la señal de apetito, enlentece el vaciamiento gástrico (mayor saciedad), estimula la secreción de insulina de forma glucosa-dependiente y reduce la secreción de glucagón. Vía de administración: inyección subcutánea semanal.',indications:'Indicado en pacientes con sobrepeso u obesidad (IMC ≥27 con comorbilidades o ≥30), diabetes tipo 2, y síndrome metabólico. Requiere evaluación clínica y análisis de laboratorio previo.',price:'Desde $350/mes'},
+  {id:2,icon:'🔬',category:'Triple Agonista',badge:'INNOVADOR',name:'Retatrutide',scientific:'GIP / GLP-1 / Glucagón Triple Agonista',desc:'Péptido de nueva generación que actúa sobre tres receptores simultáneamente. Resultados superiores en pérdida de peso comparado con agonistas simples.',benefits:['Pérdida de peso máxima','Triple mecanismo','Mejora lipídica','Control glucémico','Reduce grasa visceral'],what:'El Retatrutide es un triple agonista de los receptores GIP, GLP-1 y glucagón. Es uno de los péptidos más novedosos en medicina metabólica. Los estudios clínicos muestran pérdidas de peso superiores al 24% del peso corporal en algunos grupos de pacientes.',how:'Actúa simultáneamente en tres vías: el receptor GIP mejora la sensibilidad insulínica y el metabolismo graso; el receptor GLP-1 reduce el apetito y controla la glucemia; y el receptor de glucagón aumenta el gasto energético y la oxidación de grasas. Esta sinergia produce efectos metabólicos más amplios que los agonistas simples.',indications:'Especialmente indicado en pacientes con obesidad severa, resistencia a tratamientos previos con GLP-1 o que buscan resultados de pérdida de peso acelerados. Siempre bajo protocolo médico con monitoreo estrecho.',price:'Desde $480/mes'},
+  {id:3,icon:'🧬',category:'Análogo GHRH',badge:'PREMIUM',name:'Tesamorelin',scientific:'GHRH Analogue · Somatorelin',desc:'Análogo de la hormona liberadora de hormona de crecimiento (GHRH). Reduce específicamente la grasa visceral abdominal con evidencia clínica sólida.',benefits:['Reduce grasa visceral','Mejora composición corporal','Cardioprotector','Aumenta IGF-1','Mejora perfil lipídico'],what:'El Tesamorelin es un análogo sintético de la GHRH que estimula la hipófisis para producir y liberar GH de forma pulsátil, imitando el patrón fisiológico natural del organismo. A diferencia de la HGH exógena, respeta el eje hipotálamo-hipofisario.',how:'Al estimular la secreción endógena de hormona de crecimiento, eleva los niveles de IGF-1, activando la lipólisis (quema de grasa) especialmente en el compartimento visceral abdominal. Este efecto localizado lo hace especialmente valioso para la reducción de grasa metabólica.',indications:'Indicado principalmente en lipodistrofia abdominal, exceso de grasa visceral asociada a resistencia insulínica, adultos con déficit de hormona de crecimiento y para optimización de composición corporal en contexto médico supervisado.',price:'Desde $420/mes'},
+  {id:4,icon:'🩹',category:'Regeneración Tisular',badge:'EVIDENCIA SÓLIDA',name:'BPC-157',scientific:'Body Protection Compound 157',desc:'Péptido de protección corporal con extraordinaria capacidad de reparación tisular. Uno de los más estudiados en recuperación y regeneración muscular y tendinosa.',benefits:['Reparación tendinosa','Cicatrización acelerada','Antiinflamatorio','Protección gástrica','Recuperación muscular'],what:'El BPC-157 (Body Protection Compound) es un pentadecapéptido derivado de una proteína protectora presente en el jugo gástrico humano. Tiene propiedades regenerativas sistémicas que van desde la protección gastrointestinal hasta la reparación de tejidos blandos y articulares.',how:'Estimula la angiogénesis en zonas lesionadas, activa factores de crecimiento como el VEGF y EGF, modula receptores de dopamina y serotonina, y tiene propiedades antiinflamatorias directas. Puede administrarse por vía subcutánea, oral o intramuscular según el objetivo terapéutico.',indications:'Lesiones tendinosas crónicas, recuperación postquirúrgica, síndrome de intestino permeable, lesiones musculares recurrentes, artritis y condropatías, y como coadyuvante en cualquier proceso de recuperación física.',price:'Desde $280/mes'},
+  {id:5,icon:'💪',category:'Secretagogo GH',badge:'RENDIMIENTO',name:'CJC-1295 + Ipamorelin',scientific:'GHRH Analogue + Ghrelin Mimetic',desc:'Combinación sinérgica de dos péptidos secretagogos que maximizan la producción natural de hormona de crecimiento de forma pulsátil y fisiológica.',benefits:['Aumenta masa muscular','Reduce grasa corporal','Mejora sueño','Recuperación acelerada','Anti-aging'],what:'Esta combinación une dos mecanismos complementarios: CJC-1295 es un análogo GHRH de acción prolongada que estimula la hipófisis, mientras que Ipamorelin es un agonista selectivo del receptor de ghrelina (GHSR) que potencia la liberación de GH sin elevar cortisol ni prolactina.',how:'Juntos producen pulsos de GH de mayor amplitud y duración, respetando el ritmo circadiano natural. Esto activa la síntesis proteica muscular, favorece la lipólisis, mejora la calidad del sueño profundo y tiene efectos positivos sobre la densidad ósea y la recuperación general.',indications:'Optimización de composición corporal, déficit relativo de hormona de crecimiento relacionado con la edad, recuperación de lesiones musculoesqueléticas, mejora de rendimiento deportivo y programas integrales de anti-envejecimiento.',price:'Desde $320/mes'},
+  {id:6,icon:'⏳',category:'Longevidad Celular',badge:'ANTI-AGING',name:'Epithalon',scientific:'Tetrapeptide Ala-Glu-Asp-Gly',desc:'Tetrapéptido de longevidad que estimula la producción de telomerasa y protege los telómeros, actuando directamente sobre el reloj biológico celular.',benefits:['Protege telómeros','Estimula telomerasa','Anti-envejecimiento','Mejora sueño','Antioxidante'],what:'El Epithalon es un tetrapéptido sintético derivado de la epitalamina, una sustancia producida por la glándula pineal. Es uno de los péptidos más investigados en el campo de la longevidad y el envejecimiento biológico, con décadas de investigación clínica.',how:'Activa el gen hTERT, que codifica la subunidad catalítica de la telomerasa, la enzima encargada de mantener y reparar los telómeros. Al proteger los telómeros del acortamiento progresivo, ralentiza el proceso de senescencia celular. También regula la melatonina y tiene propiedades antioxidantes directas.',indications:'Programas de medicina anti-envejecimiento y longevidad, mejora de marcadores de edad biológica, optimización del ritmo circadiano y calidad del sueño, pacientes con estrés oxidativo elevado y como parte de protocolos integrales de salud a largo plazo.',price:'Desde $390/ciclo'}
+];
+
+function renderProducts(){
+  const grid=document.getElementById('productsGrid');
+  grid.innerHTML=products.map(p=>`
+    <div class="product-card reveal" onclick="openModal(${p.id})">
+      <div class="product-visual">
+        <div class="product-icon-wrap">${p.icon}</div>
+        <div class="product-category">${p.category}</div>
+        ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="product-scientific">${p.scientific}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-benefits">${p.benefits.map(b=>`<span class="pb-tag">${b}</span>`).join('')}</div>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">${p.price.split('/')[0]} <span>/${p.price.split('/')[1]}</span></div>
+        <button class="add-btn" onclick="event.stopPropagation();openModal(${p.id})">Ver Detalles</button>
+      </div>
+    </div>
+  `).join('');
+  document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+}
+
+function openModal(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('modalVisual').innerHTML=`<div class="product-icon-wrap" style="width:120px;height:120px;font-size:52px;">${p.icon}</div>`;
+  document.getElementById('modalTag').textContent=p.category;
+  document.getElementById('modalName').textContent=p.name;
+  document.getElementById('modalScientific').textContent=p.scientific;
+  document.getElementById('modalWhat').textContent=p.what;
+  document.getElementById('modalHow').textContent=p.how;
+  document.getElementById('modalBenefits').innerHTML=p.benefits.map(b=>`<span class="pb-tag">${b}</span>`).join('');
+  document.getElementById('modalIndications').textContent=p.indications;
+  document.getElementById('modalPrice').textContent=p.price;
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOnOverlay(e){if(e.target===document.getElementById('productModal'))closeModal();}
+
+function toggleFAQ(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+});
+
+function counter(id,target,suffix='',dur=1800){
+  const el=document.getElementById(id);if(!el)return;
+  let s=0;const step=target/60;
+  const t=setInterval(()=>{s+=step;if(s>=target){s=target;clearInterval(t);}el.textContent=Math.floor(s)+suffix;},dur/60);
+}
+setTimeout(()=>{counter('c1',12,'+');counter('c2',600,'+');counter('c3',6,'');},800);
+
+renderProducts();
+</script>
+</body>
+</html>
